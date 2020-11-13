@@ -1,57 +1,69 @@
+function getMoveName(argMoveId){
+  console.log('utworzona została funcja getMoveName z argumentem' +argMoveId);
+  if(argMoveId == 1){
+    return 'kamień';
+  } 
+  else if(argMoveId == 2){
+    return 'papier';
+  }
+  else if(argMoveId == 3){
+    return 'nożyce';
+  }
+
+  else {printMessage('Nie znam ruchu ' + argMoveId + '.');
+    return 'nieznany ruch';
+  }
+}
+
+/*Computer*/
+
 let randomNumber = Math.floor(Math.random() * 3 + 1);
 
 console.log('Wylosowana liczba to: ' + randomNumber);
 
-let computerMove = 'nieznany ruch';
+let argComputerMove = getMoveName(randomNumber);
 
-if(randomNumber == 1){
-  computerMove = 'kamień';
-}
+printMessage('Mój ruch to: ' + argComputerMove);
 
-if(randomNumber == 2){
-  computerMove = 'papier';
-}
-  
-if(randomNumber == 3){
-  computerMove = 'nożyce'
-}
-
-printMessage('Mój ruch to: ' + computerMove);
+/*Player*/
 
 let playerInput = prompt('Wybierz swój ruch! 1: kamień, 2: papier, 3: nożyce.');
 
 console.log('Gracz wpisał: ' + playerInput);
 
-let playerMove = 'nieznany ruch';
+let argPlayerMove = getMoveName(playerInput);
 
-if(playerInput == '1'){
-  playerMove = 'kamień';
-}
+printMessage('Twój ruch to: ' + argPlayerMove);
 
-if(playerInput == '2'){
-  playerMove = 'papier';
-}
+/*Results of the game*/
 
-if(playerInput == '3'){
-  playerMove = 'nożyce';
-}
-
-printMessage('Twój ruch to: ' + playerMove);
-
-if( computerMove == playerMove ){
-    printMessage('Remis');
-  } else if( computerMove == 'kamień' && playerMove == 'nożyce'){
-    printMessage('Jestem sprytniejszy, wygrałem!');
-  } else if( computerMove == 'kamień' && playerMove == 'papier'){
+function displayResult(argComputerMove, argPlayerMove){
+  console.log('funkcja displayResult z argumentami: ' +argComputerMove + argPlayerMove);
+  printMessage('Zagrałem ' + argComputerMove + ', a ty ' + argPlayerMove);
+  if( argComputerMove == argPlayerMove){
+    printMessage('REMIS');
+  } else if( argComputerMove == 'kamień' && argPlayerMove == 'papier'){
     printMessage('Ty wygrywasz!');
-  } else if( computerMove == 'papier' && playerMove == 'kamień'){
-    printMessage('Jestem sprytniejszy, wygrałem!');
-  } else if( computerMove == 'papier' && playerMove == 'nożyce'){
+  } else if( argComputerMove == 'kamień' && argPlayerMove == 'nożyce'){
+    printMessage('Wygrałem!');
+  } else if( argComputerMove == 'papier' && argPlayerMove == 'kamień'){
+    printMessage('Wygrałem!');
+  } else if( argComputerMove == 'papier' && argPlayerMove == 'nożyce'){
     printMessage('Ty wygrywasz!');
-  } else if( computerMove == 'nożyce' && playerMove == 'papier'){
-    printMessage('Jestem sprytniejszy, wygrałem!');
-  } else if( computerMove == 'nożyce' && playerMove == 'kamień'){
+  } else if( argComputerMove == 'nożyce' && argPlayerMove == 'papier'){
+    printMessage('Wygrałem!');
+  } else if( argComputerMove == 'nożyce' && argPlayerMove == 'kamień'){
     printMessage('Ty wygrywasz!');
   } else {
-    printMessage('oszukujesz!');
+    printMessage('Oszukujesz!');
   }
+}
+
+displayResult(argComputerMove, argPlayerMove);
+
+
+
+
+
+
+
