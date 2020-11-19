@@ -3,7 +3,7 @@ function playGame(playerInput){
   function clearMessages(){
     document.getElementById('buttons').innerHTML = '';
   }
-
+  
   function getMoveName(argMoveId){
     console.log('utworzona została funcja getMoveName z argumentem' +argMoveId);
       if(argMoveId == 1){
@@ -17,13 +17,15 @@ function playGame(playerInput){
       }
     }
 
-  /*Computer*/
+    /*Computer*/
 
-  let randomNumber = Math.floor(Math.random() * 3 + 1);
+  //let randomNumber = Math.floor(Math.random() * 3 + 1);
+  const randomNumber = Math.floor(Math.random() * 3 + 1);
 
   console.log('Wylosowana liczba to: ' + randomNumber);
 
-  let argComputerMove = getMoveName(randomNumber);
+  //let argComputerMove = getMoveName(randomNumber);
+  const argComputerMove = getMoveName(randomNumber);
 
   printMessage('Mój ruch to: ' + argComputerMove);
 
@@ -33,7 +35,8 @@ function playGame(playerInput){
 
   console.log('Gracz wpisał: ' + playerInput);
 
-  let argPlayerMove = getMoveName(playerInput);
+  //let argPlayerMove = getMoveName(playerInput);
+  const argPlayerMove = getMoveName(playerInput);
 
   printMessage('Twój ruch to: ' + argPlayerMove);
 
